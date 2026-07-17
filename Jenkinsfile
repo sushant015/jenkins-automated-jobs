@@ -59,7 +59,7 @@ pipeline {
                     removedJobAction: 'DELETE',
                     removedViewAction: 'DELETE',
                     removedConfigFilesAction: 'DELETE',
-                    lookupStrategy: 'SEED_JOB',
+                    lookupStrategy: 'JENKINS_ROOT',
                     ignoreMissingFiles: false,
                     failOnMissingPlugin: true,
                     unstableOnDeprecation: true
