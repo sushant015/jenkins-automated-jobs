@@ -50,6 +50,22 @@ pipeline {
                 }
             }
         }
+
+        stage('Generate Jenkins Jobs') {
+            steps {
+
+                jobDsl(
+                    targets: '**/*.groovy',
+                    removedJobAction: 'DELETE',
+                    removedViewAction: 'DELETE',
+                    removedConfigFilesAction: 'DELETE',
+                    lookupStrategy: 'SEED_JOB',
+                    ignoreMissingFiles: false,
+                    failOnMissingPlugin: true,
+                    unstableOnDeprecation: true
+                )
+            }
+        }
     }
 
     post {
