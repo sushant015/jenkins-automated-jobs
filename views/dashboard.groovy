@@ -1,13 +1,27 @@
-listView("Infrastructure") {
+listView("Dashboard") {
+
     jobs {
-        regex("Infrastructure/.*")
+
+        regex(".*")
+
     }
+
     columns {
+
         status()
+
         weather()
+
         name()
+
         lastSuccess()
+
         lastFailure()
+
         lastDuration()
+
+        buildButton()
+
     }
+
 }

@@ -1,8 +1,16 @@
 folder("Infrastructure") {
-    description("Infrastructure Pipelines")
+    displayName("Infrastructure")
+    description("Infrastructure Jobs")
 }
 
-folder("Applications")
-folder("Mobile")
+folder("Applications") {
+    displayName("Applications")
+}
+
+folder("Mobile") {
+    displayName("Mobile")
+}
+
 folder("Security")
+
 folder("Utilities")

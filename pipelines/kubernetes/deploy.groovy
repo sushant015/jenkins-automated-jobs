@@ -1,4 +1,4 @@
-pipelineJob("Mobile/Android Build") {
+pipelineJob("Infrastructure/Kubernetes Deploy") {
 
     definition {
 
@@ -10,7 +10,7 @@ pipelineJob("Mobile/Android Build") {
 
                     remote {
 
-                        url("https://github.com/company/mobile.git")
+                        url("https://github.com/company/kubernetes.git")
 
                         credentials("github-token")
 
@@ -20,7 +20,7 @@ pipelineJob("Mobile/Android Build") {
 
             }
 
-            scriptPath("android/Jenkinsfile")
+            scriptPath("jenkins/deploy.groovy")
 
         }
 

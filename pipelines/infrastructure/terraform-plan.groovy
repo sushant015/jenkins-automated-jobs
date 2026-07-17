@@ -1,17 +1,38 @@
-pipelineJob("Infrastructure/Terraform-Plan") {
+pipelineJob("Infrastructure/Terraform Plan") {
+
     description("Terraform Plan")
-    definition {
-        cpsScm {
-            scm {
-                git {
-                    remote {
-                        url("https://github.com/company/terraform-live.git")
-                        credentials("github-token")
-                    }
-                    branch("main")
-                }
-            }
-            scriptPath("jenkins/Jenkinsfile.plan")
-        }
+
+    logRotator {
+        daysToKeep(30)
+        numToKeep(20)
     }
+
+    definition {
+
+        cpsScm {
+
+            scm {
+
+                git {
+
+                    remote {
+
+                        url("https://github.com/company/terraform-live.git")
+
+                        credentials("github-token")
+
+                    }
+
+                    branch("*/main")
+
+                }
+
+            }
+
+            scriptPath("jenkins/Jenkinsfile.plan")
+
+        }
+
+    }
+
 }
