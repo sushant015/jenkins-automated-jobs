@@ -51,8 +51,20 @@ pipeline {
             }
         }
 
+        
+
         stage('Generate Jenkins Jobs') {
             steps {
+
+                script {
+                    def folder = Jenkins.instance.getItemByFullName('Automated Jobs')
+                    if (folder) {
+                        folder.items.findAll { it.name != 'Jenkins Seed' }.each {
+                            println "Deleting ${it.fullName}"
+                            it.delete()
+                        }
+                    }
+                }
 
                 jobDsl(
                     targets: '**/*.groovy',
