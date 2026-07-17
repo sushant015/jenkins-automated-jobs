@@ -55,11 +55,7 @@ pipeline {
             steps {
 
                 jobDsl(
-                    targets: [
-                        'folders/**/*.groovy',
-                        'pipelines/**/*.groovy',
-                        'views/**/*.groovy'
-                    ],
+                    targets: '**/*.groovy',
                     removedJobAction: 'DELETE',
                     removedViewAction: 'DELETE',
                     removedConfigFilesAction: 'DELETE',
