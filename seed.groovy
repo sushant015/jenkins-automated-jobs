@@ -1,20 +1,4 @@
-// Create folders
-new File('folders').eachFile { file ->
-    if (file.name.endsWith('.groovy')) {
-        evaluate(file)
-    }
-}
-
-// Create jobs
-new File('pipelines').eachFileRecurse { file ->
-    if (file.name.endsWith('.groovy')) {
-        evaluate(file)
-    }
-}
-
-// Create views
-new File('views').eachFile { file ->
-    if (file.name.endsWith('.groovy')) {
-        evaluate(file)
-    }
-}
+// Jenkins Job DSL is now executed directly from the Jenkins pipeline.
+// This file is intentionally kept as a placeholder to avoid Script Security
+// approval issues caused by dynamic evaluation of DSL files.
+println('Job DSL files are processed directly by the Jenkins pipeline.')
