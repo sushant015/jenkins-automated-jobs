@@ -40,8 +40,12 @@ pipeline {
 
                         find . -name "*.groovy" -print
 
-                        # Optional syntax validation
-                        groovyc $(find . -name "*.groovy")
+                        if command -v groovyc >/dev/null 2>&1; then
+                            echo "Running Groovy syntax validation..."
+                            find . -name "*.groovy" -print0 | xargs -0 groovyc
+                        else
+                            echo "groovyc is not available on this agent; skipping syntax validation."
+                        fi
                     '''
                 }
             }

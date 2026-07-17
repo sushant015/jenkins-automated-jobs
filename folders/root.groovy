@@ -1,7 +1,5 @@
 folder("Infrastructure") {
-
     description("Infrastructure Pipelines")
-
 }
 
 folder("Applications")
